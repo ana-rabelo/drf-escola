@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'rest_framework',  # Adicionado para uso do Django Rest Framework  
+    'escola',  # Adicionado para uso do app escola
 ]
 
 MIDDLEWARE = [
