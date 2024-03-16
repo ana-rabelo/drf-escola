@@ -17,9 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from escola.views import alunos
+from escola.views import AlunosViewSet, CursosViewSet
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('alunos/', alunos),
+    path('alunos/', AlunosViewSet.as_view({'get': 'list', 'post': 'create'})),
+    path('cursos/', CursosViewSet.as_view({'get': 'list', 'post': 'create'})),
 ]
