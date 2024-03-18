@@ -29,3 +29,15 @@ class ListaMatriculasAlunoSerializer(serializers.ModelSerializer):
     def get_periodo(self, obj):
         """Retorna o nome do período ao invés do código do período."""
         return obj.get_periodo_display()
+    
+class ListaAlunosCursoSerializer(serializers.ModelSerializer):
+    aluno = serializers.ReadOnlyField(source='aluno.nome')
+    periodo = serializers.SerializerMethodField()
+    
+    class Meta:
+        model = Matricula
+        fields = ['aluno', 'periodo']
+    
+    def get_periodo(self, obj):
+        """Retorna o nome do período ao invés do código do período"""
+        return obj.get_periodo_display()
