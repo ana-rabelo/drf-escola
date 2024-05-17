@@ -14,4 +14,4 @@ markdown = "*"
 server = "python manage.py runserver"
 
 [requires]
-python_version = "3.11"
+python_version = "3.12"
