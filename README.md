@@ -1,7 +1,6 @@
-# API com Django 3
+# <img src=https://i.imgur.com/5ustGMp.png width="250"> </img>
 
-## Descrição
-Nossa API é um app de escola, e na escola temos alunos, cursos e alunos matriculados em diferentes cursos. a API é capaz de:
+A **API DRF Escola** é um app de escola, onde temos alunos, cursos e alunos matriculados em diferentes cursos. A API é capaz de:
 
 - Criar e atualizar um aluno;
 - Criar, atualizar e remover um curso;
@@ -25,7 +24,7 @@ Após instalar o Python e o pip, abra o terminal e navegue até a pasta do proje
 
 - `pip install virtualenv` para instalar o pacote de ambiente virtual.
 - `python -m virtualenv .venv` para criar um ambiente virtual.
-- `source .venv/bin/activate` para ativar o ambiente virtual.
+- `source .venv/bin/activate` para ativar o ambiente virtual no Linux ou `.venv/Scripts/activate` no Windows.
 - `pipenv check` para verificar se o ambiente atual está a cumprir os requisitos do Pipfile.
 
 Agora, precisamos criar o banco de dados. Execute os seguintes comandos:
@@ -36,6 +35,12 @@ Agora, precisamos criar o banco de dados. Execute os seguintes comandos:
 Finalmente, podemos executar o projeto:
 
 - `python manage.py runserver` para iniciar o servidor.
+
+Para popular o banco de dados e criar usuários com permissões específicas para este projeto, execute o comando em um novo terminal na raiz do projeto:
+
+- `python seed.py`
+
+O script `seed.py` cria usuários no Django com permissões específicas. Ele também popula o banco de dados com dados de exemplo, se necessário. Verifique e personalize o script de acordo com suas necessidades.
   
 Após executar o último comando, o terminal exibirá uma mensagem com o endereço onde a API está sendo executada. Pressione **Ctrl + Clique** no link para abrir no seu navegador.
 
