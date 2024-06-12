@@ -28,6 +28,6 @@ router.register(r'matriculas', MatriculasViewSet, basename='Matriculas')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include(router.urls)),
-    path('aluno/<int:pk>/matriculas/', ListaMatriculasAluno.as_view(), name='aluno_matriculas'),
-    path('curso/<int:pk>/alunos/', ListaAlunosCurso.as_view(), name='curso_alunos')
+    path('alunos/<int:pk>/matriculas/', ListaMatriculasAluno.as_view(), name='aluno_matriculas'),
+    path('cursos/<int:pk>/alunos/', ListaAlunosCurso.as_view(), name='curso_alunos')
 ]
