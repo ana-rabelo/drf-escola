@@ -1,6 +1,6 @@
 from rest_framework import viewsets, generics
 from escola.models import Aluno, Curso, Matricula
-from escola.serializer import AlunoSerializer, CursoSerializer, ListaAlunosCursoSerializer, ListaMatriculasAlunoSerializer, MatriculaSerializer
+from escola.serializer import AlunoSerializer, AlunoSerializerV2, CursoSerializer, ListaAlunosCursoSerializer, ListaMatriculasAlunoSerializer, MatriculaSerializer
 from rest_framework.authentication import BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
 
@@ -8,9 +8,13 @@ class AlunosViewSet(viewsets.ModelViewSet):
     """Exibe todos os alunos"""
 
     queryset = Aluno.objects.all()
-    serializer_class = AlunoSerializer
     authentication_classes = [BasicAuthentication]
     permission_classes = [IsAuthenticated]
+
+    def get_serializer_class(self):
+        if self.request.version == 'v2':
+            return AlunoSerializerV2
+        return AlunoSerializer
 
 class CursosViewSet(viewsets.ModelViewSet):
     """Exibe todos os cursos"""

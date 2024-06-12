@@ -41,3 +41,8 @@ class ListaAlunosCursoSerializer(serializers.ModelSerializer):
     def get_periodo(self, obj):
         """Retorna o nome do período ao invés do código do período"""
         return obj.get_periodo_display()
+    
+class AlunoSerializerV2(serializers.ModelSerializer):
+    class Meta:
+        model = Aluno
+        fields = ['id', 'nome', 'rg', 'cpf', 'data_nascimento', 'celular']
