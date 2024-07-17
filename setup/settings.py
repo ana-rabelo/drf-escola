@@ -158,6 +158,20 @@ REST_FRAMEWORK = {
         'anon': '100/day',
         'user': '1000/day'
     },
-
-
 }
+
+# Config Redis
+""" 
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379/1',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+        }
+    }
+}
+
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
+ """
