@@ -56,6 +56,10 @@ MIDDLEWARE = [
     'django.middleware.locale.LocaleMiddleware',
 ]
 
+MIDDLEWARE_PATHS = [
+    'django.middleware.locale.LocaleMiddleware'
+]
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:8000",
@@ -159,6 +163,17 @@ REST_FRAMEWORK = {
         'anon': '100/day',
         'user': '1000/day'
     },
+
+    # adiciona requisição em XML e JSON
+    #'DEFAULT_PARSER_CLASSES': [
+        #'rest_framework.parsers.JSONParser',
+        #'rest_framework_xml.parsers.XMLParser',
+    #],
+
+    #'DEFAULT_RENDERER_CLASSES': [
+        #'rest_framework.renderers.JSONRenderer',
+        #'rest_framework_xml.renderers.XMLRenderer',
+    #],
 }
 
 # Config Redis
@@ -176,3 +191,8 @@ CACHES = {
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "default"
  """
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale/'),
+)
+

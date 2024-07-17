@@ -1,8 +1,10 @@
 asgiref==3.8.1
+defusedxml==0.7.1
 Django==5.0.7
 django-cors-headers==4.4.0
 django-redis==5.4.0
 djangorestframework==3.15.1
+djangorestframework-xml==2.0.0
 Faker==4.14.2
 pillow==10.3.0
 python-dateutil==2.8.1
