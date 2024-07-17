@@ -1,14 +1,16 @@
 asgiref==3.8.1
 defusedxml==0.7.1
 Django==5.0.7
-django-admin-honeypot==1.1.0
+django-admin-honeypot @ git+https://github.com/dmpayton/django-admin-honeypot.git@a840496d183df89965eeb33c9a5dd9ea3919dfff
 django-cors-headers==4.4.0
+django-ipware==7.0.1
 django-redis==5.4.0
 djangorestframework==3.15.1
 djangorestframework-xml==2.0.0
 Faker==4.14.2
 pillow==10.3.0
 python-dateutil==2.8.1
+python-ipware==3.0.0
 pytz==2020.4
 redis==5.0.7
 six==1.16.0
