@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-=k-odj!n!ag%$6g2#1pm&x-@82*!@_723+!9++m7qkv_58n7rw'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 # Application definition
 
@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     
     'rest_framework',  # Adicionado para uso do Django Rest Framework  
     'escola',  # Adicionado para uso do app escola
-    "corsheaders",  # Adicionado para uso do CORS
+    'corsheaders',  # Adicionado para uso do CORS
+    'admin_honeypot', # Adiciona biblioteca Honeypot
 ]
 
 MIDDLEWARE = [
