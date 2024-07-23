@@ -18,25 +18,38 @@ def criando_alunos(quantidade_de_pessoas):
     for _ in range(quantidade_de_pessoas):
         cpf = CPF()
         nome = fake.name()
+        email = '{}@{}'.format(nome.lower(),fake.free_email_domain())
+        email = email.replace(' ', '')
         rg = "{}{}{}{}".format(random.randrange(10, 99),random.randrange(100, 999),random.randrange(100, 999),random.randrange(0, 9)) 
         cpf = cpf.generate()
-        data_nascimento = fake.date_between(start_date='-18y', end_date='today')
-        a = Aluno(nome=nome,rg=rg, cpf=cpf,data_nascimento=data_nascimento)
+        data_nascimento = fake.date_of_birth(minimum_age=18, maximum_age=30)
+        celular = "{} 9{}-{}".format(random.randrange(10, 89), random.randrange(4000, 9999), random.randrange(4000, 9999))
+        
+        a = Aluno(nome=nome,rg=rg, cpf=cpf,data_nascimento=data_nascimento, celular=celular, email=email)
         a.save()
 
 def criando_cursos(quantidade_de_cursos):
     """Cria cursos com código, descrição e nível aleatórios."""
 
-    fake = Faker('pt_BR')
-    Faker.seed(10)
+    dados = [
+        ('CPOO1', 'Curso de Python Orientação à Objetos 01'),
+        ('CPOO2', 'Curso de Python Orientação à Objetos 02'),
+        ('CPOO3', 'Curso de Python Orientação à Objetos 03'),
+        ('CDJ01', 'Curso de Django 01'),
+        ('CDJ02', 'Curso de Django 02'),
+        ('CDJ03', 'Curso de Django 03'),
+        ('CDJ04', 'Curso de Django 04'),
+        ('CDJ05', 'Curso de Django 05'),
+        ('CDJRF01', 'Curso de Django REST Framework 01'),
+        ('CDJRF02', 'Curso de Django REST Framework 02'),
+        ('CDJRF03', 'Curso de Django REST Framework 03'),
+        ('CDJRF04', 'Curso de Django REST Framework 04')
+    ]
+    
     for _ in range(quantidade_de_cursos):
-        codigo_curso = "{}{}-{}".format(random.choice("ABCDEF"), random.randrange(10, 99),random.randrange(1, 9))
-        descs = ['Python Fundamentos', 'Python intermediário','Python Avançado', 'Python para Data Science', 'Python/React']
-        descricao = random.choice(descs)
-        descs.remove(descricao)
-        nivel = random.choice("BIA")
-        c = Curso(codigo_curso=codigo_curso,descricao=descricao, nivel=nivel)
-        c.save()
+        for codigo, descricao in dados:
+            nivel = random.choice("BIA")
+            Curso.objects.create(codigo=codigo, descricao=descricao, nivel=nivel)
 
 def criando_usuarios(username, email, password, last_name, models, permissions):
     """Cria um usuário com permissões específicas."""
@@ -58,7 +71,7 @@ def criando_usuarios(username, email, password, last_name, models, permissions):
     else:
         print("Usuário já existe.")
 
-criando_alunos(200)
+criando_alunos(50)
 criando_cursos(5)
 
 criando_usuarios('Maria', 'maria@example.com', 'senha_segura', 'Silva', [Matricula], ['add', 'view', 'change'])
