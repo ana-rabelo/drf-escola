@@ -49,7 +49,7 @@ def criando_cursos(quantidade_de_cursos):
     for _ in range(quantidade_de_cursos):
         for codigo, descricao in dados:
             nivel = random.choice("BIA")
-            Curso.objects.create(codigo=codigo, descricao=descricao, nivel=nivel)
+            Curso.objects.create(codigo_curso=codigo, descricao=descricao, nivel=nivel)
 
 def criando_usuarios(username, email, password, last_name, models, permissions):
     """Cria um usuário com permissões específicas."""

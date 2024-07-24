@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'escola',  # Adicionado para uso do app escola
     'corsheaders',  # Adicionado para uso do CORS
     'admin_honeypot', # Adiciona biblioteca Honeypot
+    'django_filters', # Adiciona biblioteca de filtro e ordenação
 ]
 
 MIDDLEWARE = [
@@ -175,7 +176,16 @@ REST_FRAMEWORK = {
         #'rest_framework.renderers.JSONRenderer',
         #'rest_framework_xml.renderers.XMLRenderer',
     #],
+
+    #Paginação
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 20,
+
+    #Filtro
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
+
 }
+
 
 # Config Redis
 """ 

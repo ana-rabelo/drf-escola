@@ -3,6 +3,7 @@ defusedxml==0.7.1
 Django==5.0.7
 django-admin-honeypot @ git+https://github.com/dmpayton/django-admin-honeypot.git@a840496d183df89965eeb33c9a5dd9ea3919dfff
 django-cors-headers==4.4.0
+django-filter==24.2
 django-ipware==7.0.1
 django-redis==5.4.0
 djangorestframework==3.15.1
